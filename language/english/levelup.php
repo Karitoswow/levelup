@@ -20,8 +20,6 @@ $lang['processing'] = "Processing...";
 $lang['purchase'] = "purchase";
 
 
-
-
 $lang['not_support'] = "The realm does not support that service.";
 $lang['character_does_not_exist'] = "The selected character does not exist." ;  
 $lang['character_does_not_belong_account'] =  "The selected character does not belong to your account." ;

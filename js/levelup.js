@@ -41,10 +41,9 @@ const LevelUp = {
 
     busy: false,
 
-    Submit: function (form) {
+    Submit: function (button) {
         if (this.busy)
             return;
-
         //Check if we have selected realm
         if (this.User.realm == 0) {
             Swal.fire({
@@ -54,7 +53,6 @@ const LevelUp = {
             })
             return;
         }
-
         //Check if we have selected character
         if (this.User.character == 0) {
             Swal.fire({
@@ -81,8 +79,12 @@ const LevelUp = {
             }
         }
 
+
+
         if (CanAfford) {
             // Make the user confirm the purchase
+
+
             Swal.fire({
                 title: lang("want_to_buy", "levelup"),
                 text: "You won't be able to revert this!",

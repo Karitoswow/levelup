@@ -1,13 +1,13 @@
 {
 	"name":"Levelup",
 	"description":"Enables your users to use blizzlike Levelup.",
-	"version":"1.0.0",
-	"date":"2024-02-25",
+	"version":"2.0.0",
+	"date":"2024-09-02",
 	"min_required_version":"8.2.1",
 	"author":
 	{
-		"name":"FusionCMS",
-		"website":"https://github.com/FusionWowCMS/FusionCMS"
+		"name":"Shayan",
+		"website":"https://FusionCMS.ir"
 	},
 	"permissions":
 	{
@@ -23,10 +23,33 @@
 			"description": "View the levelup module.",
 			"permissions":
 			{
-				"view":true
+				"view":true,
+				"canAddItems": {"default": false, "description": "Add Levelup Add items character" }
+			}
+		},
+		"manage": {
+			"description": "Manage the Levelup Add items character. <font style='color:red;'>Admin-tool</font>",
+			"dangerLevel": 2,
+
+			"permissions": {
+				"canAddItems": true
 			}
 		}
 
 	},
+	"admin": [
+		{
+			"text": "Levelup",
+			"icon": "share",
+			"links": [
+				{
+					"text": "Items",
+					"icon": "tag",
+					"controller": "admin",
+					"requirePermission": "canAddItems"
+				}
+			]
+		}
+	],
 	"enabled":true
 }
