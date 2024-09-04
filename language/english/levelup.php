@@ -30,4 +30,6 @@ $lang['dont_enough_Donation_Points']  = "You dont have enough Donation Points." 
 $lang['no_service']  = "The selected service is invalid.";
 $lang['no_selected_service']  = "Something went wrong, please try again." ;
 $lang['successfully']  = "The request was made successfully." ;
+
+$lang['not_authorized'] = "You are not authorized to do this.";
  

@@ -32,4 +32,6 @@ $lang['no_command']  = "O reino não suporta esse serviço de comando." ;
 $lang['dont_enough_donation_points']  = "Você não tem pontos de doação suficientes." ;
 $lang['no_service']  = "O serviço selecionado é inválido.";
 $lang['no_selected_service']  = "Algo deu errado, por favor, tente novamente." ;
-$lang['successfully']  = "O pedido foi feito com sucesso." ; 
+$lang['successfully']  = "O pedido foi feito com sucesso." ;
+
+$lang['not_authorized'] = "Você não está autorizado a fazer isso.";

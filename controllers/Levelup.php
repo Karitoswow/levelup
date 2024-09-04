@@ -88,6 +88,9 @@ class levelup extends MX_Controller
 
         $levelup = array_search($price, (array)$prices);
 
+
+
+
         // Make sure the realm actually supports console commands
         if (!$this->realms->getRealm($realmId)->getEmulator()->hasConsole()) {
             die(lang("not_support", "levelup"));
@@ -113,6 +116,14 @@ class levelup extends MX_Controller
             //Make sure we've got the name
             if (!$CharacterName) {
                 die(lang("unable_resolve_character_name", "levelup"));
+            }
+
+
+           $check = $this->data_model->getLevelCharacter($characterGuid,$realmId,$levelup);
+
+            if($check)
+            {
+                die(lang("not_authorized", "levelup"));
             }
 
             //Check if the user can afford the service

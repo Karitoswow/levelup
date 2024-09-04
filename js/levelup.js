@@ -4,10 +4,10 @@ const LevelUp = {
         dp: null,
         realm: 0,
         character: 0,
+        price : 0,
 
-        initialize: function (config) {
-            this.dp = config.dp;
-            this.price = config.price;
+        initialize: function (dp) {
+            this.dp = dp;
         }
     },
 
@@ -29,6 +29,7 @@ const LevelUp = {
         }
 
         this.User.realm = realmId;
+
     },
 
     CharacterPrice: function (selectField) {
@@ -45,7 +46,7 @@ const LevelUp = {
         if (this.busy)
             return;
         //Check if we have selected realm
-        if (this.User.realm == 0) {
+        if (this.User.realm === 0) {
             Swal.fire({
                 icon: 'error',
                 title: 'Level up',
@@ -54,7 +55,7 @@ const LevelUp = {
             return;
         }
         //Check if we have selected character
-        if (this.User.character == 0) {
+        if (this.User.character === 0) {
             Swal.fire({
                 icon: 'error',
                 title: 'Level up',
@@ -65,7 +66,7 @@ const LevelUp = {
 
         var CanAfford = false;
 
-        if (this.User.price == 0) {
+        if (this.User.price === 0) {
             CanAfford = true;
         } else {
             if (LevelUp.User.dp < this.User.price) {
@@ -79,11 +80,8 @@ const LevelUp = {
             }
         }
 
-
-
         if (CanAfford) {
             // Make the user confirm the purchase
-
 
             Swal.fire({
                 title: lang("want_to_buy", "levelup"),

@@ -72,6 +72,13 @@ var Items = {
                 values[$(this).attr("name")] = $(this).val();
             }
         });
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Please wait ...',
+            text: '',
+        })
+
         $.post(Config.URL + this.Links.createGroup, values,
             function (data) {
                 if (data == "1") {

@@ -111,20 +111,25 @@ class data_model extends CI_Model
                 return 'Error Insert Data';
             }
         }
-
     }
-    public function checkchar ($guid,$realmid)
+    public function getLevelCharacter ($guid,$realmid,$levelconfig)
     {
         $character_database = $this->realms->getRealm($realmid)->getCharacters();
         $character_database->connect();
-        $query = $character_database->getConnection()->query("SELECT * FROM characters WHERE guid = ? and  online=0", array($guid));
+        $query = $character_database->getConnection()->query("SELECT * FROM characters WHERE guid = ?", array($guid));
         if($query->getNumRows() > 0)
-
-            return true;
+        {
+            $result=$query->getResultArray();
+            if($result[0]['level'] > $levelconfig)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
         else
             return false;
     }
-
     public function delete($id)
     {
         $this->db->query("DELETE FROM levelup_items WHERE id = ?", [$id]);

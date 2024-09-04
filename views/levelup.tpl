@@ -9,7 +9,6 @@
                 setTimeout(initializeLevelUp, 50);
             }
         }
-
         initializeLevelUp();
     });
 </script>
@@ -31,7 +30,7 @@
                 {if $realm.characters}
                     <option value="0"> Select Character</option>
                     {foreach from=$realm.characters item=character}
-                        {if $character.level != $maxlevel}
+                        {if $character.level < $maxlevel}
                             <option value="{$character.guid}">{$character.name} - Lvl {$character.level}</option>
                         {/if}
                     {/foreach}
@@ -40,16 +39,14 @@
                 {/if}
             </select>
         {/foreach}
-
-        <label for="id">Price</label>
-        <select name="id" id="id" onChange="LevelUp.CharacterPrice(this);">
+        <label for="price">Price</label>
+        <select name="price" id="price" onChange="LevelUp.CharacterPrice(this);">
             {foreach from=$prices item=price key=key}
                 <option value="{$price}">Level {$key} DP {$price} </option>
             {/foreach}
         </select>
         <br/>
         <br/>
-
         <center>Your prize comes with Levelup
             <div style="padding: 8px 17px 8px 17px; margin-bottom: 20px; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); background-color: #0b0c0b;  -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;">
                 <div>
@@ -67,13 +64,11 @@
                                             {/if}
                                         {/if}
                                     </td>
-
                                     <td>
                                         {if $count != 0}
                                             Item({$count})s and sent to you.
                                         {/if}
                                     </td>
-
                                 </tr>
                             </table>
                         </div>
@@ -96,7 +91,6 @@
                                 </td>
                             </tr>
                         {/if}
-
                     {/foreach}
                 {/if}
             </table>
